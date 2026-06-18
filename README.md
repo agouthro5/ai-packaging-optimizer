@@ -27,31 +27,32 @@ The user would enter product specifications and packaging requirements. The AI s
 
 <img width="3024" height="4032" alt="Image - 2026-06-18T112547 639" src="https://github.com/user-attachments/assets/b8189646-562c-4334-9780-db01065c9254" />
 
+This prototype below demonstrates how an AI system could evaluate packaging options using product dimensions and weight. Historical shipping data could be used to learn coefficients that predict packaging efficiency, shipping cost, or sustainability impact. Higher-scoring packaging concepts would be recommended to product managers and packaging engineers.
 
+import numpy as np
 
 def main():
 
-    products = [
-        ["Batting Helmet", 2.1, 24, 18, 12],
-        ["Chest Protector", 3.5, 30, 22, 8],
-        ["Leg Guards", 4.0, 34, 24, 10]
-    ]
+    # Historical packaging projects
+    x_train = np.array([
+        [2.1, 24, 18, 12],
+        [3.5, 30, 22, 8],
+        [4.0, 34, 24, 10],
+        [1.8, 20, 16, 10]
+    ])
 
-    # coefficients learned from historical packaging data
-    # [weight, length, width, height]
-    c = [-50, -5, -5, -5]
+    # Measured shipping costs
+    y_train = np.array([12.5, 18.0, 22.0, 10.0])
 
-    for product in products:
+    # New product
+    x_test = np.array([
+        [2.8, 26, 20, 10]
+    ])
 
-        name = product[0]
-        values = product[1:]
+    c = np.linalg.lstsq(x_train, y_train, rcond=-1)[0]
 
-        score = 0
-
-        for i in range(len(c)):
-            score += values[i] * c[i]
-
-        print("%s Packaging Score: %.1f" % (name, score))
+    print("Predicted Shipping Cost:")
+    print(x_test @ c)
 
 main()
 
