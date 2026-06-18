@@ -29,6 +29,9 @@ The user would enter product specifications and packaging requirements. The AI s
 
 This prototype below demonstrates how an AI system could evaluate packaging options using product dimensions and weight. Historical shipping data could be used to learn coefficients that predict packaging efficiency, shipping cost, or sustainability impact. Higher-scoring packaging concepts would be recommended to product managers and packaging engineers.
 
+## Example Code
+
+```python
 import numpy as np
 
 def main():
@@ -55,6 +58,7 @@ def main():
     print(x_test @ c)
 
 main()
+```
 
 
 ## Data sources and AI methods
