@@ -29,23 +29,31 @@ The user would enter product specifications and packaging requirements. The AI s
 
 
 
-This is how you create code examples:
-```
 def main():
-   countries = ['Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden']
-   pop = [5615000, 5439000, 324000, 5080000, 9609000]   # not actually needed in this exercise...
-   fishers = [1891, 2652, 3800, 11611, 1757]
 
-   totPop = sum(pop)
-   totFish = sum(fishers)
+    products = [
+        ["Batting Helmet", 2.1, 24, 18, 12],
+        ["Chest Protector", 3.5, 30, 22, 8],
+        ["Leg Guards", 4.0, 34, 24, 10]
+    ]
 
-   # write your solution here
+    # coefficients learned from historical packaging data
+    # [weight, length, width, height]
+    c = [-50, -5, -5, -5]
 
-   for i in range(len(countries)):
-      print("%s %.2f%%" % (countries[i], 100.0))    # current just prints 100%
+    for product in products:
+
+        name = product[0]
+        values = product[1:]
+
+        score = 0
+
+        for i in range(len(c)):
+            score += values[i] * c[i]
+
+        print("%s Packaging Score: %.1f" % (name, score))
 
 main()
-```
 
 
 ## Data sources and AI methods
