@@ -25,10 +25,9 @@ The user would enter product specifications and packaging requirements. The AI s
 * Alternative packaging concepts
 
 
-https://raw.githubusercontent.com/agouthro5/ai-packaging-optimizer/refs/heads/main/Packaging
+<img width="3024" height="4032" alt="Image - 2026-06-18T112547 639" src="https://github.com/user-attachments/assets/b8189646-562c-4334-9780-db01065c9254" />
 
-If you need to resize images, you have to use an HTML tag, like this:
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg" width="300">
+
 
 This is how you create code examples:
 ```
